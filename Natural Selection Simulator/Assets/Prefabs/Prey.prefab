@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1e92a81659b4029bb83544b963f95a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 300
 --- !u!50 &6557716998003472010
 Rigidbody2D:
   serializedVersion: 4
@@ -152,9 +152,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generation: 1
   size: 1
-  defaultLifespan: 1000
+  defaultLifespan: 600
   offspring: {fileID: 6557716998003472015}
-  fertility: 3
+  fertility: 2
   currentLifespan: 0
 --- !u!1 &6557716998663085776
 GameObject:

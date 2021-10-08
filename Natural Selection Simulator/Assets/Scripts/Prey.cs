@@ -24,29 +24,30 @@ public class Prey : MonoBehaviour
     {
         currentLifespan--;
         
-
         if(currentLifespan <= 0)
         {
             for(int i = 0; i < (int) fertility; i++)
             {
-                currentLifespan = defaultLifespan;
-                GameObject child = Instantiate(offspring, transform.position, Quaternion.identity);
-                child.GetComponent<Prey>().generation++;
-                child.GetComponent<Prey>().defaultLifespan += (UnityEngine.Random.value + 0.5f) * 100;
-                child.GetComponent<Prey>().fertility += (UnityEngine.Random.Range(-0.5f, 0.5f));
-                child.GetComponent<Entity>().speed  *= UnityEngine.Random.value + 1f;
+                if(GameObject.FindGameObjectsWithTag("Prey").Length <= 250) {
+                    currentLifespan = defaultLifespan;
+                    GameObject child = Instantiate(offspring, transform.position, Quaternion.identity);
+                    child.GetComponent<Prey>().generation++;
+                    child.GetComponent<Prey>().defaultLifespan += UnityEngine.Random.Range(-80f, 80f);
+                    child.GetComponent<Prey>().fertility += (UnityEngine.Random.Range(-0.8f, 1.2f));
+                    child.GetComponent<Entity>().speed *= UnityEngine.Random.value + 1f;
+                    child.name = "Prey";
 
-                float sizeChange = UnityEngine.Random.Range(0.6f, 1.4f);
-                float cSize = child.GetComponent<Prey>().size;
-                if((cSize * sizeChange) > 0.1f) {
-                    child.GetComponent<Prey>().size *= sizeChange;
-                    child.GetComponent<Transform>().localScale *= sizeChange;
-                    child.GetComponent<CircleCollider2D>().radius *= sizeChange;
+                    float sizeChange = UnityEngine.Random.Range(0.7f, 1.3f);
+                    float cSize = child.GetComponent<Prey>().size;
+                    if((cSize * sizeChange) > 0.1f) {
+                        child.GetComponent<Prey>().size *= sizeChange;
+                        child.GetComponent<Transform>().localScale *= sizeChange;
+                        child.GetComponent<CircleCollider2D>().radius *= sizeChange;
+                    }
                 }
             }
             
             Destroy(gameObject);
-
         }
     }
 }

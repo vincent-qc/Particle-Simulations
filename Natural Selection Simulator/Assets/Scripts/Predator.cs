@@ -13,6 +13,8 @@ public class Predator : MonoBehaviour
 
     public CircleCollider2D CC;
 
+
+
     void Start()
     {
         CC = GetComponent<CircleCollider2D>();
@@ -30,18 +32,23 @@ public class Predator : MonoBehaviour
 
         if(currentLifespan <= 0)
         {
-            if(kills > 6) kills = 6;
+            if(kills > 12) kills = 12;
 
-            for(int i = 0; i < (kills / 2); i++)
+            for(int i = 0; i < (kills / 1.5f); i++)
             {
-                currentLifespan = defaultLifespan;
-                GameObject child = Instantiate(offspring, transform.position, Quaternion.identity);
-                child.GetComponent<CircleCollider2D>().radius *= UnityEngine.Random.Range(0.8f, 1.2f);
-                child.GetComponent<Predator>().generation++;
-                child.GetComponent<Predator>().defaultLifespan += (UnityEngine.Random.value + 0.5f) * 100;
-                child.GetComponent<Entity>().speed  *= UnityEngine.Random.value + 1f;
-                float scale = GetComponent<CircleCollider2D>().radius * 3;
-                child.transform.localScale = new Vector3(scale, scale, 1);
+                if(GameObject.FindGameObjectsWithTag("Predator").Length <= 300)
+                {
+                    currentLifespan = defaultLifespan;
+                    GameObject child = Instantiate(offspring, transform.position, Quaternion.identity);
+                    child.GetComponent<CircleCollider2D>().radius *= UnityEngine.Random.Range(0.6f, 1.4f);
+                    child.GetComponent<Predator>().generation++;
+                    child.GetComponent<Predator>().defaultLifespan += UnityEngine.Random.Range(-80, 80);
+                    child.GetComponent<Predator>().kills = 0;
+                    child.GetComponent<Entity>().speed  *= UnityEngine.Random.value + 1f;
+                    child.name = "Predator";
+                    float scale = GetComponent<CircleCollider2D>().radius * 3;
+                    child.transform.localScale = new Vector3(scale, scale, 1);
+                }
             }
             
             Destroy(gameObject);

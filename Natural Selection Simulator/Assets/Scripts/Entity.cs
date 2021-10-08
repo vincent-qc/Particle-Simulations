@@ -16,7 +16,7 @@ public class Entity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(UnityEngine.Random.value > 0.975)
+        if(UnityEngine.Random.value > 0.96)
         {
             rb.AddForce(UnityEngine.Random.insideUnitCircle.normalized * 60f);
         }

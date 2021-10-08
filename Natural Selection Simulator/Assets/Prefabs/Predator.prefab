@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2491523604565970167}
   m_Layer: 0
   m_Name: Predator
-  m_TagString: Untagged
+  m_TagString: Predator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1e92a81659b4029bb83544b963f95a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
+  speed: 400
 --- !u!50 &2491523604565970164
 Rigidbody2D:
   serializedVersion: 4
@@ -138,7 +138,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.33
+  m_Radius: 0.4
 --- !u!58 &2491523604565970165
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -168,8 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generation: 1
-  vision: 0.2
-  defaultLifespan: 1000
+  defaultLifespan: 700
   offspring: {fileID: 2491523604565970160}
   kills: 0
   currentLifespan: 0
