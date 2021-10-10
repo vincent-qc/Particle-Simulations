@@ -23,8 +23,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    Unity.Timeline.Editor.dll:
-    - TimelineProjectSettings
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -72,29 +70,29 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1532}
+      Script: {instanceID: 2000}
     - Class: 114
-      Script: {instanceID: 2374}
+      Script: {instanceID: 2842}
     - Class: 114
-      Script: {instanceID: 2672}
+      Script: {instanceID: 3140}
     - Class: 114
-      Script: {instanceID: 2906}
+      Script: {instanceID: 3374}
     - Class: 114
-      Script: {instanceID: 3212}
+      Script: {instanceID: 3680}
     - Class: 114
-      Script: {instanceID: 4314}
+      Script: {instanceID: 4782}
     - Class: 114
-      Script: {instanceID: 5820}
+      Script: {instanceID: 6288}
     - Class: 114
-      Script: {instanceID: 6166}
+      Script: {instanceID: 6634}
     - Class: 114
-      Script: {instanceID: 6366}
+      Script: {instanceID: 6834}
     - Class: 114
-      Script: {instanceID: 6724}
+      Script: {instanceID: 7192}
     - Class: 114
-      Script: {instanceID: 7614}
+      Script: {instanceID: 8082}
     - Class: 114
-      Script: {instanceID: 7870}
+      Script: {instanceID: 8338}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1077,4 +1075,5 @@ ScriptsOnlyBuild:
   platform: 20
   scenePathNames:
   - Assets/Scenes/Main.unity
-  playerPath: /Users/vincentqi/Desktop/Natural Selection Simulator
+  playerPath: /Users/vincentqi/Documents/GitHub/Natural-Selection-Simulator/Natural
+    Selection Simulator/Builds/Natural Selection Web
