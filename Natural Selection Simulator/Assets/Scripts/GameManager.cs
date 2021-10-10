@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Instantiate Prey
-        for(int i = 0; i < 50; i++) {
+        for(int i = 0; i < 60; i++) {
             Vector3 screenPosition = Camera.main.ScreenToWorldPoint(new Vector3(Random.Range(0,Screen.width), Random.Range(0,Screen.height), Camera.main.farClipPlane/2));
             Instantiate(prey, screenPosition, Quaternion.identity);
         }

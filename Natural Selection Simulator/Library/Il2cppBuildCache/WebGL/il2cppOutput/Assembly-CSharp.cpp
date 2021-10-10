@@ -2179,7 +2179,7 @@ IL_0052:
 		}
 	}
 	{
-		// for(int i = 0; i < 50; i++) {
+		// for(int i = 0; i < 60; i++) {
 		V_2 = 0;
 		goto IL_00a8;
 	}
@@ -2215,16 +2215,16 @@ IL_005a:
 		IL2CPP_RUNTIME_CLASS_INIT(Object_tF2F3778131EFF286AF62B7B013A170F95A91571A_il2cpp_TypeInfo_var);
 		GameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319 * L_27;
 		L_27 = Object_Instantiate_TisGameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319_mF6943C67D79929CEF346FD96932E84EFCA9819B9(L_24, L_25, L_26, /*hidden argument*/Object_Instantiate_TisGameObject_tC000A2E1A7CF1E10FD7BA08863287C072207C319_mF6943C67D79929CEF346FD96932E84EFCA9819B9_RuntimeMethod_var);
-		// for(int i = 0; i < 50; i++) {
+		// for(int i = 0; i < 60; i++) {
 		int32_t L_28 = V_2;
 		V_2 = ((int32_t)il2cpp_codegen_add((int32_t)L_28, (int32_t)1));
 	}
 
 IL_00a8:
 	{
-		// for(int i = 0; i < 50; i++) {
+		// for(int i = 0; i < 60; i++) {
 		int32_t L_29 = V_2;
-		if ((((int32_t)L_29) < ((int32_t)((int32_t)50))))
+		if ((((int32_t)L_29) < ((int32_t)((int32_t)60))))
 		{
 			goto IL_005a;
 		}

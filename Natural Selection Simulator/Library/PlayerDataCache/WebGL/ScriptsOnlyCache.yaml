@@ -10,7 +10,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
     Unity.2D.Tilemap.Editor.dll:
@@ -70,29 +69,29 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 2000}
+      Script: {instanceID: 1540}
     - Class: 114
-      Script: {instanceID: 2842}
+      Script: {instanceID: 2382}
     - Class: 114
-      Script: {instanceID: 3140}
+      Script: {instanceID: 2680}
     - Class: 114
-      Script: {instanceID: 3374}
+      Script: {instanceID: 2914}
     - Class: 114
-      Script: {instanceID: 3680}
+      Script: {instanceID: 3220}
     - Class: 114
-      Script: {instanceID: 4782}
+      Script: {instanceID: 4322}
     - Class: 114
-      Script: {instanceID: 6288}
+      Script: {instanceID: 5828}
     - Class: 114
-      Script: {instanceID: 6634}
+      Script: {instanceID: 6174}
     - Class: 114
-      Script: {instanceID: 6834}
+      Script: {instanceID: 6374}
     - Class: 114
-      Script: {instanceID: 7192}
+      Script: {instanceID: 6732}
     - Class: 114
-      Script: {instanceID: 8082}
+      Script: {instanceID: 7622}
     - Class: 114
-      Script: {instanceID: 8338}
+      Script: {instanceID: 7878}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1076,4 +1075,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Main.unity
   playerPath: /Users/vincentqi/Documents/GitHub/Natural-Selection-Simulator/Natural
-    Selection Simulator/Builds/Natural Selection Web
+    Selection Simulator/Builds/Natural Selection Web v1.1
