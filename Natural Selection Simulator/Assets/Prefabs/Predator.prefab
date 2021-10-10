@@ -101,7 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1e92a81659b4029bb83544b963f95a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 400
+  speed: 40
+  defaultLifespan: 20
 --- !u!50 &2491523604565970164
 Rigidbody2D:
   serializedVersion: 4
@@ -138,7 +139,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.4
+  m_Radius: 0.3
 --- !u!58 &2491523604565970165
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -168,7 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generation: 1
-  defaultLifespan: 700
   offspring: {fileID: 2491523604565970160}
   kills: 0
   currentLifespan: 0
@@ -183,6 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2491523606086200150}
   - component: {fileID: 2491523606086200151}
+  - component: {fileID: 3783714110327673183}
   m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
@@ -246,7 +247,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.6
+  m_Time: 0.3
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -312,3 +313,15 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &3783714110327673183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491523606086200149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c810e346d97c84f1ca7cb7dd98c5d501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

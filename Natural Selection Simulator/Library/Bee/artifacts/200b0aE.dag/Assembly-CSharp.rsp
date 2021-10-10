@@ -346,6 +346,7 @@
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Predator.cs"
 "Assets/Scripts/Prey.cs"
+"Assets/Scripts/Trail.cs"
 -langversion:8.0
 
 /deterministic

@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1e92a81659b4029bb83544b963f95a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
+  speed: 40
+  defaultLifespan: 20
 --- !u!50 &6557716998003472010
 Rigidbody2D:
   serializedVersion: 4
@@ -152,9 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   generation: 1
   size: 1
-  defaultLifespan: 600
-  offspring: {fileID: 6557716998003472015}
   fertility: 2
+  offspring: {fileID: 6557716998003472015}
   currentLifespan: 0
 --- !u!1 &6557716998663085776
 GameObject:
@@ -166,8 +166,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6557716998663085779}
   - component: {fileID: 6557716998663085778}
+  - component: {fileID: 4913742700519857848}
   m_Layer: 0
-  m_Name: Trail (1)
+  m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +230,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.6
+  m_Time: 0.3
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -295,3 +296,15 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &4913742700519857848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557716998663085776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c810e346d97c84f1ca7cb7dd98c5d501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

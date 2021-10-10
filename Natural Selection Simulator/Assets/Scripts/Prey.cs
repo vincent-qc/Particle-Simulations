@@ -6,44 +6,67 @@ public class Prey : MonoBehaviour
 {
     public int generation = 1;
     public float size = 1;
-    public float defaultLifespan = 1000;
-    public GameObject offspring;
     public float fertility = 3;
 
-    public float currentLifespan;
+    public GameObject offspring;
+
+    [SerializeField] private float currentLifespan;
 
     CircleCollider2D CC;
 
     void Start()
     {
-        currentLifespan = defaultLifespan;
+        currentLifespan = GetComponent<Entity>().defaultLifespan;
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentLifespan--;
+        currentLifespan -= Time.deltaTime;
         
+        // Produce Offspring once lifespan is over
         if(currentLifespan <= 0)
         {
+
+            // Produce Offspring based on fertility
             for(int i = 0; i < (int) fertility; i++)
             {
-                if(GameObject.FindGameObjectsWithTag("Prey").Length <= 250) {
-                    currentLifespan = defaultLifespan;
-                    GameObject child = Instantiate(offspring, transform.position, Quaternion.identity);
-                    child.GetComponent<Prey>().generation++;
-                    child.GetComponent<Prey>().defaultLifespan += UnityEngine.Random.Range(-80f, 80f);
-                    child.GetComponent<Prey>().fertility += (UnityEngine.Random.Range(-0.8f, 1.2f));
-                    child.GetComponent<Entity>().speed *= UnityEngine.Random.value + 1f;
-                    child.name = "Prey";
 
-                    float sizeChange = UnityEngine.Random.Range(0.7f, 1.3f);
+                // Maximum 200 Prey
+                if(GameObject.FindGameObjectsWithTag("Prey").Length <= 300) {
+                    
+                    // Increase to avoid crash
+                    currentLifespan = 10f;
+
+                    // Instantiate Variables
+                    GameObject child = Instantiate(offspring, transform.position, Quaternion.identity);
+                    Prey cPrey = child.GetComponent<Prey>();
+                    Entity cEntity = child.GetComponent<Entity>();
+
+                    // Change Name
+                    child.name = $"Prey - Generation {generation + 1}";
+                    
+                    // Mutate Prey-Exclusive Properties
+                    cPrey.generation++;
+                    cPrey.fertility += (UnityEngine.Random.Range(-0.8f, 1.2f));
+
+                    // Mutate Entity Properties
+                    cEntity.speed *= UnityEngine.Random.Range(0.8f, 1.2f);
+                    cEntity.defaultLifespan += UnityEngine.Random.Range(-5f, 5f);
+
+
+                    // Generate the Size change values
+                    float sizeChange = UnityEngine.Random.Range(0.8f, 1.2f);
                     float cSize = child.GetComponent<Prey>().size;
-                    if((cSize * sizeChange) > 0.1f) {
-                        child.GetComponent<Prey>().size *= sizeChange;
+
+                    // Make sure Size is always above 0.1f the original
+                    if((cSize * sizeChange) > 0.2f) {
+                        cPrey.size *= sizeChange;
                         child.GetComponent<Transform>().localScale *= sizeChange;
-                        child.GetComponent<CircleCollider2D>().radius *= sizeChange;
+                        //child.GetComponent<CircleCollider2D>().radius *= sizeChange;
                     }
+
+                    cPrey.currentLifespan = cEntity.defaultLifespan;
                 }
             }
             

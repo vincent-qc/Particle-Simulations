@@ -5,54 +5,72 @@ using UnityEngine;
 public class Predator : MonoBehaviour
 {
     public int generation = 1;
-    public float defaultLifespan = 1000;
     public GameObject offspring;
 
-    public float kills = 0;
-    public float currentLifespan;
+    [SerializeField] private float kills = 0;
+    [SerializeField] private float currentLifespan;
 
     public CircleCollider2D CC;
-
-
 
     void Start()
     {
         CC = GetComponent<CircleCollider2D>();
-        currentLifespan = defaultLifespan;
+        currentLifespan = GetComponent<Entity>().defaultLifespan;
 
-        float scale = GetComponent<CircleCollider2D>().radius * 3;
-        transform.localScale = new Vector3(scale, scale, 1);
+        //float scale = GetComponent<CircleCollider2D>().radius * 2;
+        //transform.localScale = new Vector3(scale, scale, 1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentLifespan--;
+        currentLifespan -= Time.deltaTime;
         
-
+        // Produce Offspring once lifespan is over
         if(currentLifespan <= 0)
         {
-            if(kills > 12) kills = 12;
+            // Set max number of kills
+            if(kills > 16) kills = 16;
 
-            for(int i = 0; i < (kills / 1.5f); i++)
+            for(int i = 0; i < Mathf.Clamp(kills * 40f / GetComponent<Entity>().speed, 0, 3); i++)
             {
-                if(GameObject.FindGameObjectsWithTag("Predator").Length <= 300)
+
+                // Maximum 200 Predators
+                if(GameObject.FindGameObjectsWithTag("Predator").Length <= 150)
                 {
-                    currentLifespan = defaultLifespan;
+
+                    // Increase to avoid crash
+                    currentLifespan = 10;
+
+                    // Instantiate Variables
                     GameObject child = Instantiate(offspring, transform.position, Quaternion.identity);
-                    child.GetComponent<CircleCollider2D>().radius *= UnityEngine.Random.Range(0.6f, 1.4f);
-                    child.GetComponent<Predator>().generation++;
-                    child.GetComponent<Predator>().defaultLifespan += UnityEngine.Random.Range(-80, 80);
-                    child.GetComponent<Predator>().kills = 0;
-                    child.GetComponent<Entity>().speed  *= UnityEngine.Random.value + 1f;
-                    child.name = "Predator";
-                    float scale = GetComponent<CircleCollider2D>().radius * 3;
-                    child.transform.localScale = new Vector3(scale, scale, 1);
+                    Predator cPredator = child.GetComponent<Predator>();
+                    Entity cEntity = child.GetComponent<Entity>();
+                    
+                    // Change Name
+                    child.name = $"Predator - Generation {generation + 1}";
+
+
+                    // Mutate Predator-Exclusive Properties
+                    cPredator.generation++;
+                    cPredator.kills = 0;
+
+
+                    // Mutate Entity Properties
+                    cEntity.speed  *= UnityEngine.Random.Range(0.8f, 1.2f);
+                    cEntity.defaultLifespan += UnityEngine.Random.Range(-5f, 5f);
+                    
+
+                    // Mutate Vision
+                    //child.GetComponent<CircleCollider2D>().radius *= UnityEngine.Random.Range(0.6f, 1.4f);
+                    //float scale = GetComponent<CircleCollider2D>().radius * 2;
+                    child.transform.localScale *= UnityEngine.Random.Range(0.85f, 1.15f);
+
+                    cPredator.currentLifespan = cEntity.defaultLifespan;
                 }
             }
             
             Destroy(gameObject);
-
         }
     }
 

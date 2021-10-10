@@ -5,7 +5,9 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     public float speed = 80f;
-    Rigidbody2D rb;
+    public float defaultLifespan = 60f;
+    
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -16,9 +18,9 @@ public class Entity : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(UnityEngine.Random.value > 0.96)
+        if(UnityEngine.Random.value > 0.965)
         {
-            rb.AddForce(UnityEngine.Random.insideUnitCircle.normalized * 60f);
+            rb.AddForce(UnityEngine.Random.insideUnitCircle.normalized * speed);
         }
     }
 }
