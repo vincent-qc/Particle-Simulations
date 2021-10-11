@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject pred;
     public Text text;
 
-    private float index = 3;
+    private float index = 1;
 
     void Start()
     {
